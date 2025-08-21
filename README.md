@@ -64,9 +64,6 @@ AWS_REGION="us-east-1"
 AWS_ACCESS_KEY_ID="your-aws-access-key"
 AWS_SECRET_ACCESS_KEY="your-aws-secret-key"
 
-# Alternative: Use .env file if Prisma has issues
-
-4. Database Initialization
 # Generate Prisma client
 npx prisma generate
 
