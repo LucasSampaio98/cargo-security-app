@@ -42,7 +42,6 @@ Git installed
 
 🚀 Quick Start
 
-1. Clone and Setup
 # Clone the repository
 git clone <your-repository-url>
 cd cargo-security-app
@@ -50,14 +49,11 @@ cd cargo-security-app
 # Install dependencies
 npm install
 
-2. Database Configuration
 # Create PostgreSQL database (local)
 createdb cargo_security
+Or use cloud database (ElephantSQL, Neon, etc.)
 
-# Or use cloud database (ElephantSQL, Neon, etc.)
-# Get your connection string
-
-3. Environment Setup
+# Environment Setup
 Create .env.local file:
 
 # Database
@@ -94,35 +90,61 @@ Open your browser and navigate to:
 http://localhost:3000
 
 📁 Project Structure
-cargo-security-app/
-├── app/
-│   ├── api/
-│   │   ├── alerts/
-│   │   ├── cargos/
-│   │   └── dashboard/
-│   ├── components/
-│   │   ├── AlertSystem.tsx
-│   │   ├── CargoForm.tsx
-│   │   ├── CargoList.tsx
-│   │   └── RiskDashboard.tsx
-│   ├── lib/
-│   │   └── prisma.ts
-│   ├── services/
-│   │   └── riskAnalysisService.ts
-│   └── page.tsx
-├── prisma/
-│   ├── schema.prisma
-│   └── seed.ts
-├── public/
-└── package.json
 
-🧪 Testing the Application
-1. Test Risk Analysis
+app/ - Next.js app directory
+
+api/ - API routes
+
+alerts/ - Alert management endpoints
+
+cargos/ - Cargo management endpoints
+
+dashboard/ - Dashboard data endpoint
+
+components/ - React components
+
+AlertSystem.tsx - Real-time alert system
+
+CargoForm.tsx - Cargo registration form
+
+CargoList.tsx - Cargo listing
+
+RiskDashboard.tsx - Risk analytics dashboard
+
+lib/ - Utilities
+
+prisma.ts - Database client
+
+services/ - Business logic
+
+riskAnalysisService.ts - AI risk analysis
+
+prisma/ - Database schema and migrations
+
+schema.prisma - Database schema
+
+seed.ts - Sample data
+
+public/ - Static assets
+
+favicon.ico, images, etc.
+
+Root files - Configuration files
+
+.env.local - Environment variables
+
+package.json - Dependencies and scripts
+
+tailwind.config.js - Styling configuration
+
+tsconfig.json - TypeScript configuration
+
+7. Testing the Application
+
 Create sample cargo shipments:
 
 Low-Medium Risk Example:
 
-json
 {
   "description": "Construction materials",
   "value": "8000",
@@ -131,9 +153,9 @@ json
   "weight": "2000",
   "dimensions": "3x2x1.5m"
 }
+
 Critical Risk Example:
 
-json
 {
   "description": "Electronics shipment",
   "value": "300000",
@@ -143,7 +165,8 @@ json
   "dimensions": "1.2x1x0.8m"
 }
 
-2. Test Alert System
+8. Test Alert System
+  
 Access the test page:
 
 http://localhost:3000/test-alerts
@@ -159,7 +182,8 @@ curl -X POST http://localhost:3000/api/alerts \
     "severity": "CRITICAL"
   }'
 
-3. Monitor Dashboard
+9. Monitor Dashboard
+10. 
 Check the risk dashboard for:
 
 Total cargo statistics
@@ -185,6 +209,7 @@ Level	Score Range	Description
 🟡 MEDIUM	40-59	Moderate risk, basic precautions
 🟠 HIGH	60-79	Elevated risk, enhanced security
 🔴 CRITICAL	80-100	Extreme risk, maximum security measures
+
 🛡️ Alert Types
 SECURITY_THREAT - Immediate security risks
 
@@ -197,6 +222,7 @@ TRAFFIC - Traffic and congestion issues
 SCHEDULE_CHANGE - Timing and scheduling changes
 
 🚨 Severity Levels
+
 INFO - Informational messages
 
 WARNING - Potential issues
@@ -206,6 +232,7 @@ HIGH - Serious concerns
 CRITICAL - Emergency situations
 
 📊 Deployment
+
 AWS Deployment Setup
 Setup AWS Resources:
 
@@ -217,7 +244,6 @@ IAM roles for Bedrock access
 
 Configure GitHub Secrets:
 
-env
 DATABASE_URL="your-rds-connection-string"
 AWS_ACCESS_KEY_ID="your-aws-key"
 AWS_SECRET_ACCESS_KEY="your-aws-secret"
@@ -232,6 +258,7 @@ Deployment to EC2 on main branch push
 Database migrations automated
 
 Manual Deployment
+
 # Build application
 npm run build
 
@@ -244,13 +271,10 @@ export AWS_ACCESS_KEY_ID="your-aws-key"
 export AWS_SECRET_ACCESS_KEY="your-aws-secret"
 
 🐛 Troubleshooting
-Common Issues:
-Database Connection:
 
 # Test database connection
 npx prisma db push
 
-Environment Variables:
 # Check if .env is loaded
 echo $DATABASE_URL
 AWS Bedrock Access:
@@ -263,6 +287,7 @@ Port Conflicts:
 npx kill-port 3000
 
 📈 Future Enhancements
+
 Real-time WebSocket notifications
 
 Mobile app companion
@@ -276,3 +301,5 @@ Multi-language support
 Advanced reporting analytics
 
 Integration with logistics APIs
+
+Work on pipeline script
