@@ -190,31 +190,45 @@ Critical alerts count
 Recent high-risk shipments
 
 🔧 API Endpoints
-Method	Endpoint	Description
-GET	/api/cargos	List all cargo shipments
-POST	/api/cargos	Create new cargo with risk analysis
-GET	/api/alerts	Get all alerts (with filters)
-POST	/api/alerts	Create new alert
-PATCH	/api/alerts/[id]	Update alert status
-GET	/api/dashboard	Get dashboard statistics
+
+Method	| Endpoint	| Description
+
+- GET	| /api/cargos	| List all cargo shipments
+
+- POST | /api/cargos | Create new cargo with risk analysis
+
+- GET | /api/alerts | Get all alerts (with filters)
+
+- POST | /api/alerts | Create new alert
+
+- PATCH | /api/alerts/[id] | Update alert status
+
+- GET | /api/dashboard | Get dashboard statistics
 
 🚦 Risk Levels
-Level	Score Range	Description
-🟢 LOW	0-39	Minimal risk, safe transportation
-🟡 MEDIUM	40-59	Moderate risk, basic precautions
-🟠 HIGH	60-79	Elevated risk, enhanced security
-🔴 CRITICAL	80-100	Extreme risk, maximum security measures
+
+Level	| Score | Range | Description
+
+🟢 | LOW	| 0-39	|Minimal risk, safe transportation
+
+🟡 | MEDIUM	| 40-59	| Moderate risk, basic precautions
+
+🟠 | HIGH	|60-79 | Elevated risk, enhanced security
+
+🔴 | CRITICAL	| 80-100 | Extreme risk, maximum security measures
+
 
 🛡️ Alert Types
-SECURITY_THREAT - Immediate security risks
 
-ROUTE_DEVIATION - Route changes or diversions
+- SECURITY_THREAT - Immediate security risks  
 
-WEATHER - Weather-related risks
+- ROUTE_DEVIATION - Route changes or diversions
 
-TRAFFIC - Traffic and congestion issues
+- WEATHER - Weather-related risks
 
-SCHEDULE_CHANGE - Timing and scheduling changes
+- TRAFFIC - Traffic and congestion issues
+
+- SCHEDULE_CHANGE - Timing and scheduling changes
 
 🚨 Severity Levels
 
@@ -265,7 +279,7 @@ export DATABASE_URL="your-database-url"
 export AWS_ACCESS_KEY_ID="your-aws-key"
 export AWS_SECRET_ACCESS_KEY="your-aws-secret"
 
-🐛 Troubleshooting
+# 🐛 Troubleshooting
 
 # Test database connection
 npx prisma db push
@@ -281,7 +295,7 @@ Port Conflicts:
 # Kill process on port 3000
 npx kill-port 3000
 
-📈 Future Enhancements
+# 📈 Future Enhancements
 
 Real-time WebSocket notifications
 
