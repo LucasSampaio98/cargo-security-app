@@ -73,18 +73,16 @@ npx prisma db push
 # Seed with sample data (optional)
 npx prisma db seed
 
-5. Start Development Server
-
 # Run development server
 npm run dev
+
+Open your browser and navigate to:
+http://localhost:3000
+
 
 # Or build for production
 npm run build
 npm start
-
-6. Access Application
-Open your browser and navigate to:
-http://localhost:3000
 
 📁 Project Structure
 
@@ -136,7 +134,7 @@ tailwind.config.js - Styling configuration
 
 tsconfig.json - TypeScript configuration
 
-7. Testing the Application
+# Testing the Application
 
 Create sample cargo shipments:
 
@@ -162,7 +160,7 @@ Critical Risk Example:
   "dimensions": "1.2x1x0.8m"
 }
 
-8. Test Alert System
+# Test Alert System
   
 Access the test page:
 
@@ -179,8 +177,8 @@ curl -X POST http://localhost:3000/api/alerts \
     "severity": "CRITICAL"
   }'
 
-9. Monitor Dashboard
-10. 
+# Monitor Dashboard
+ 
 Check the risk dashboard for:
 
 Total cargo statistics
