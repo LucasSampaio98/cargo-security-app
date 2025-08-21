@@ -1,0 +1,72 @@
+// prisma/schema.prisma
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url = env("DATABASE_URL")
+}
+
+model Cargo {
+  id          String @id @default (cuid())
+  description String
+  value       Float
+  origin      String
+  destination String
+  weight      Float
+  dimensions  String
+  riskScore   Float ?
+        riskLevel   RiskLevel ?
+            alerts      Alert[]
+  routes      Route[]
+  createdAt   DateTime @default (now())
+  updatedAt   DateTime @updatedAt
+
+    @@map("cargos")
+}
+
+model Route {
+  id        String @id @default (cuid())
+  cargoId   String
+  cargo     Cargo @relation(fields: [cargoId], references: [id], onDelete: Cascade)
+  waypoints Json
+  createdAt DateTime @default (now())
+
+    @@map("routes")
+}
+
+model Alert {
+  id          String @id @default (cuid())
+  cargoId     String
+  cargo       Cargo @relation(fields: [cargoId], references: [id], onDelete: Cascade)
+        type AlertType
+  message     String
+  severity    SeverityLevel
+  resolved    Boolean @default (false)
+  createdAt   DateTime @default (now())
+
+    @@map("alerts")
+}
+
+enum RiskLevel {
+    LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum AlertType {
+    ROUTE_DEVIATION
+  WEATHER
+  TRAFFIC
+  SECURITY_THREAT
+  SCHEDULE_CHANGE
+}
+
+enum SeverityLevel {
+    INFO
+  WARNING
+  DANGER
+  CRITICAL
+}
